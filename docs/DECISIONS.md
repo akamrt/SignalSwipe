@@ -4,6 +4,9 @@ Newest first. Each entry: date, decision, who decided, why.
 
 ## 25 Nov 2026 (Nathan)
 
+- **GitHub builds the Android app file.** Free, no extra accounts or keys, and works the
+  same for any assistant on any account. Installed from the "Android latest" release.
+
 - **Name: SignalSwipe.** So everyone knows which app is meant.
 - **Own repo.** Keeps the handover files simple and separate from SermonSignal.
 - **React Native with Expo plus native add-ons.** One codebase for both phones, same

@@ -5,4 +5,5 @@ Done:
 - Drafted AGENTS.md, STATUS, PLAN, REUSE and this note.
 Not done / problems:
 - Nothing outstanding. Nathan created the repo and the kit was pushed to main.
-Next: step 2 (see docs/STATUS.md).
+- Step 2 app code and the GitHub Android build (branch claude/step-2-empty-app).
+Next: see docs/STATUS.md.
