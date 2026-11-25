@@ -1,11 +1,14 @@
 # Where we are now
 
-Last updated: 25 Nov 2026 by Claude (planning thread).
+Last updated: 25 Nov 2026, about 17:40, by Claude.
 
 **Current step:** 2 of 8, empty app on the phone.
 
 **What works:** the app code for step 2 (pick videos, swipe placeholder cards, redo note,
-tally at the end) passes typecheck, lint and tests. GitHub builds the APK.
+tally at the end) passes typecheck, lint and tests. PR #1 is merged (the repo was made public
+so GitHub Actions minutes are free). The build on main published the "Android latest" release:
+install link https://github.com/akamrt/SignalSwipe/releases/download/android-latest/signalswipe.apk
+(about 64 MB). Every push to main replaces it.
 
 **Half-done:** not yet tried on a real phone.
 
