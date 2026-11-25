@@ -62,10 +62,24 @@ Next: <the exact next task>
   Native binding), face tracking (Google ML Kit on Android, Apple Vision on iPhone),
   video render (Media3 Transformer on Android, AVFoundation on iPhone).
 - AI: DeepSeek Flash through OpenRouter, called from the phone.
-- Builds: Expo EAS (cloud) or a local Android build; iPhone via EAS, no Mac needed.
+- Builds: GitHub Actions builds the Android APK (`.github/workflows/android.yml`); each push
+  to `main` publishes it as the "Android latest" release for the owner to install.
+  iPhone later via Expo EAS, no Mac needed.
+- Expo changes fast between versions: read `docs/EXPO_NOTES.md` before touching Expo APIs.
+  Network-blocked sandboxes: prefix Expo commands with `EXPO_OFFLINE=1`.
 - Test phones: Samsung Galaxy S26 Ultra and Google Pixel 8 (Pixel 8 is the speed target).
 
 ## Branches and checks
 
 - `main` is trunk. Work on short branches and open pull requests into `main`.
-- Before a PR: `npm run typecheck` and `npm run lint` pass (once the app exists).
+- Before a PR: `npm run typecheck`, `npm run lint` and `npm test` pass. The Android build
+  check on the PR must be green.
+- Add packages with `npx expo install <package>`, not plain npm, so versions match the SDK.
+
+## Where the code is
+
+- `App.tsx`: switches between the two screens.
+- `src/PickScreen.tsx`: pick sermon videos from the phone.
+- `src/SwipeScreen.tsx`: swipe cards (right yes, left no, up redo with a note).
+- `src/swipe.ts`: what a drag means (tested in `tests/swipe.test.ts`).
+- `src/cards.ts`: placeholder shorts; replaced by AI-chosen moments in step 4.

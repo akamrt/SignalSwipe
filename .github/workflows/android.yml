@@ -1,0 +1,58 @@
+# Builds the Android app file (APK) on GitHub's machines, free.
+# Every pull request builds it as a check. Every push to main also publishes it as the
+# "Android latest" release, so the owner can download and install it on a phone.
+name: Android build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: android-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v4
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+      - name: Generate the Android project
+        run: npx expo prebuild --platform android --no-install
+      - name: Build the APK
+        working-directory: android
+        run: ./gradlew assembleRelease --no-daemon
+      - name: Name the APK
+        run: cp android/app/build/outputs/apk/release/app-release.apk signalswipe.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: signalswipe-apk
+          path: signalswipe.apk
+      - name: Publish as "Android latest"
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: android-latest
+          name: Android latest
+          prerelease: true
+          make_latest: false
+          body: "Latest Android build of SignalSwipe from main (${{ github.sha }}). Download signalswipe.apk on your phone and open it to install."
+          files: signalswipe.apk

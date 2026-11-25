@@ -2,12 +2,13 @@
 
 Last updated: 25 Nov 2026 by Claude (planning thread).
 
-**Current step:** 2 of 8, empty app on the phone. Step 1 (handover kit) is done.
+**Current step:** 2 of 8, empty app on the phone.
 
-**What works:** nothing yet. The plan is agreed (docs/PLAN.md, docs/DECISIONS.md).
+**What works:** the app code for step 2 (pick videos, swipe placeholder cards, redo note,
+tally at the end) passes typecheck, lint and tests. GitHub builds the APK.
 
-**Half-done:** nothing.
+**Half-done:** not yet tried on a real phone.
 
-**Next task:** step 2. Create the Expo app (TypeScript, development build) with two
-screens: a video picker (videos only) and a swipe screen with placeholder cards. Produce
-an Android APK and install it on the Pixel 8.
+**Next task:** owner installs "Android latest" on the Pixel 8 and S26 Ultra and tries it.
+Then step 3: on-device transcription (whisper.cpp binding), measuring minutes per hour of
+sermon on the Pixel 8.
