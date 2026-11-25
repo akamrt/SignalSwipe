@@ -4,5 +4,5 @@ Done:
 - Wrote the plan and recorded Nathan's five decisions (docs/DECISIONS.md).
 - Drafted AGENTS.md, STATUS, PLAN, REUSE and this note.
 Not done / problems:
-- The GitHub repo did not exist yet; Nathan creates it, then the kit is pushed.
+- Nothing outstanding. Nathan created the repo and the kit was pushed to main.
 Next: step 2 (see docs/STATUS.md).

@@ -3,7 +3,7 @@
 Each step ends with something the owner can try on a phone. Tick a step only when it has
 been tried on a real phone.
 
-- [ ] **1. Setup and handover kit.** Repo, AGENTS.md, STATUS, DECISIONS, PLAN, sessions.
+- [x] **1. Setup and handover kit.** Repo, AGENTS.md, STATUS, DECISIONS, PLAN, sessions.
 - [ ] **2. Empty app on the phone.** Pick videos; swipe placeholder cards. Proves the
       install route (APK on the Pixel 8 and S26 Ultra).
 - [ ] **3. Phone transcribes.** On-device Whisper turns a sermon into text with word
